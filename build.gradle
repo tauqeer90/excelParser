@@ -1,0 +1,15 @@
+apply plugin: 'java'
+apply plugin: 'application'
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+   compile 'com.google.guava:guava:20.0'  // Google Guava dependency
+   compile "org.apache.poi:poi:3.17"
+   compile "org.apache.poi:poi-ooxml:3.17"
+   testCompile 'junit:junit:4.12'         // JUnit dependency for testing
+}
+
+mainClassName = 'com.tauqeer.excelparser.MainApp'  // Main class with main method
