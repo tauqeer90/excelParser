@@ -88,7 +88,8 @@ public class MainApp {
 		{
             Cell cell = cellIterator.next();
             String cellValue = dataFormatter.formatCellValue(cell);
-            if(cellValue == null || cellValue == "" || cellValue == " ");
+            if(cellValue == null || cellValue.length() == 0 || cellValue.trim().length() == 0)
+            	continue;
             System.out.print(cellValue + "\t");
             columnNames.add(cellValue);
 		}
