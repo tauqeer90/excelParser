@@ -1,10 +1,21 @@
 apply plugin: 'java'
 apply plugin: 'application'
 
-repositories {
-    jcenter()
+
+task fatJar(type: Jar) {
+	manifest {
+        attributes 'Implementation-Title': 'Excel Parser',
+        	'Main-Class': 'com.tauqeer.excelparser.MainApp'
+    }
+    baseName = project.name + '-all'
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+    with jar
 }
 
+repositories {
+    mavenCentral()
+    jcenter()
+}
 dependencies {
    compile 'com.google.guava:guava:20.0'  // Google Guava dependency
    compile "org.apache.poi:poi:3.17"
